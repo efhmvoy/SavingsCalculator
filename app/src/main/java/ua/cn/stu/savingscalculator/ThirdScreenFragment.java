@@ -47,7 +47,7 @@ public class ThirdScreenFragment extends Fragment {
                 {
                     getFragmentManager().beginTransaction()
                             .addToBackStack(null)
-                            .replace(R.id.fragmentContainer, new FirstScreenFragment()).commit();
+                            .replace(R.id.fragmentContainer, new MenuFragment()).commit();
                 }
         );
     }
