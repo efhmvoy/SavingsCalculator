@@ -35,7 +35,7 @@ public class ThirdScreenFragment extends Fragment {
 
         Calculations calculations = new Calculations();
 
-        Sy.setText(String.valueOf(calculations.getSy(FirstScreenFragment.getProfitPerMonth())));
+        Sy.setText(String.valueOf(calculations.getSy((int)FirstScreenFragment.getProfitPerMonth())));
         Sc.setText(String.valueOf(calculations.getSc()));
         W.setText(String.valueOf(Math.round(calculations.getW(SecondScreenFragment.getSelectedCurrency()))));
         Sh.setText(String.valueOf((Math.round(calculations.getSh(SecondScreenFragment.getSelectedCurrency())))));
@@ -47,7 +47,7 @@ public class ThirdScreenFragment extends Fragment {
                 {
                     getFragmentManager().beginTransaction()
                             .addToBackStack(null)
-                            .replace(R.id.fragmentContainer, new FirstScreenFragment()).commit();
+                            .replace(R.id.fragmentContainer, new MenuFragment()).commit();
                 }
         );
     }

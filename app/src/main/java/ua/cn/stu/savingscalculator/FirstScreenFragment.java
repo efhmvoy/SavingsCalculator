@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -15,10 +16,10 @@ import androidx.fragment.app.Fragment;
 
 public class    FirstScreenFragment extends Fragment {
 
-    private  static int profitPerMonth;
+    private  static long  profitPerMonth;
     private static double monthPercentage;
 
-    public static int getProfitPerMonth() {
+    public static long  getProfitPerMonth() {
         return profitPerMonth;
     }
 
@@ -38,8 +39,8 @@ public class    FirstScreenFragment extends Fragment {
     {
         super.onViewCreated(view, savedInstanceState);
         //profitPerMonth = Integer.parseInt(view.findViewById(R.id.profitPerMonth).toString());
-        TextView textView1 = view.findViewById(R.id.profitPerMonth);
-        TextView textView2 = view.findViewById(R.id.monthPercentage);
+        EditText textView1 = view.findViewById(R.id.profitPerMonth);
+        EditText textView2 = view.findViewById(R.id.monthPercentage);
 
 
         Button secondScreenButton = view.findViewById(R.id.secondScreenButton);
@@ -50,9 +51,17 @@ public class    FirstScreenFragment extends Fragment {
             {
                 Toast.makeText(getActivity(),"Введіть дохід за місяць",Toast.LENGTH_SHORT).show();
             }
-            if(textView2.getText().toString().isEmpty())
+            else if (textView2.getText().toString().isEmpty())
             {
                 Toast.makeText(getActivity(),"Введіть відсоток доходу",Toast.LENGTH_SHORT).show();
+            }
+            else if(Long.parseLong(textView1.getText().toString())>Integer.MAX_VALUE)
+            {
+                Toast.makeText(getActivity(),"Значення не може перевищувати "+String.valueOf(Integer.MAX_VALUE),Toast.LENGTH_SHORT).show();
+            }
+            else if(Double.parseDouble(textView2.getText().toString())>1)
+            {
+                Toast.makeText(getActivity(),"Відсоток доходу не може бути > 1",Toast.LENGTH_SHORT).show();
             }
             else
             {
