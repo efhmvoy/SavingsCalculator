@@ -68,7 +68,7 @@ public class    FirstScreenFragment extends Fragment {
                 profitPerMonth =Integer.parseInt(textView1.getText().toString());
 
                 monthPercentage = Double.parseDouble(textView2.getText().toString());
-
+//zxc
                 getFragmentManager().beginTransaction()
                         .addToBackStack(null)
                         .replace(R.id.fragmentContainer, new SecondScreenFragment()).commit();
