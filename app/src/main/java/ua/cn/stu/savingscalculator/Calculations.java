@@ -28,7 +28,7 @@ public  class Calculations {
 
    public double getSc() //Кількість гривень (Sc), витрачених на обмін валюти:
    {
-       return getSy(FirstScreenFragment.getProfitPerMonth()) *FirstScreenFragment.getMonthPercentage();
+       return getSy((int)FirstScreenFragment.getProfitPerMonth()) *FirstScreenFragment.getMonthPercentage();
    }
 
    public double getCi(int i, double Cstart, double Cend) // Інтерпольований курс
@@ -57,7 +57,7 @@ public  class Calculations {
 
     public double getSl() // ) Гривневий залишок (SL):
     {
-        return  getSy(FirstScreenFragment.getProfitPerMonth())-getSc();
+        return  getSy((int)FirstScreenFragment.getProfitPerMonth())-getSc();
     }
 
     public double getH(int currency)
@@ -68,7 +68,7 @@ public  class Calculations {
 
     public double getR(int currency)
     {
-        return  getH(currency)-getSy(FirstScreenFragment.getProfitPerMonth());
+        return  getH(currency)-getSy((int)FirstScreenFragment.getProfitPerMonth());
     }
 
 }
